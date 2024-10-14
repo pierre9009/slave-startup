@@ -1,0 +1,13 @@
+services:
+  walletminer:
+    image: pierreminh/walletminer:multiarch
+    env_file: ./.env
+    restart: always
+    container_name: walletminer_container
+
+  slave_api:
+    image: pierreminh/slave_api:latest
+    ports:
+      - "5000:5000"
+    restart: always
+    container_name: slave_api_container
