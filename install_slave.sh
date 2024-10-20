@@ -27,11 +27,11 @@ sudo git clone https://github.com/pierre9009/slave-startup.git /home/pierre/slav
 # Vérifier si le fichier .env existe, sinon demander à l'utilisateur de le créer
 if [ ! -f /home/pierre/slave-startup/.env ]; then
   echo "Le fichier .env n'existe pas. Veuillez entrer les variables d'environnement :"
-  read -p "Variable 1: " var1
-  read -p "Variable 2: " var2
+  read -p "PASSWORD_WALLET_DB=" var1
+  read -p "PASSWORD_REDIS_SERVER=" var2
   cat <<EOF > /home/pierre/slave-startup/.env
-$var1
-$var2
+PASSWORD_WALLET_DB=$var1
+PASSWORD_REDIS_SERVER=$var2
 EOF
 fi
 
