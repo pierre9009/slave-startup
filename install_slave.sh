@@ -20,7 +20,7 @@ echo \
 sudo apt-get update
 # Installer Docker Compose
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
+sudo docker login
 # Cloner le dépôt Git contenant les fichiers nécessaires
 sudo git clone https://github.com/pierre9009/slave-startup.git /home/pierre/slave-startup
 
