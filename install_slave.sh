@@ -24,15 +24,9 @@ sudo docker login
 # Cloner le dépôt Git contenant les fichiers nécessaires
 sudo git clone https://github.com/pierre9009/slave-startup.git /home/pierre/slave-startup
 
-# Vérifier si le fichier .env existe, sinon demander à l'utilisateur de le créer
 if [ ! -f /home/pierre/slave-startup/.env ]; then
-  echo "Le fichier .env n'existe pas. Veuillez entrer les variables d'environnement :"
-  read -p "env file=" var1
-
-  cat <<EOF > /home/pierre/slave-startup/.env
-$var1
-
-EOF
+    echo "The .env file doesn't exist. Please paste the entire .env content (press Ctrl+D when finished):"
+    cat > /home/pierre/slave-startup/.env
 fi
 
 # Créer le fichier de service systemd pour Docker Compose
