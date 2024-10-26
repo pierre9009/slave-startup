@@ -22,11 +22,11 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo docker login
 # Cloner le dépôt Git contenant les fichiers nécessaires
-sudo git clone https://github.com/pierre9009/slave-startup.git /home/pierre/slave-startup
+sudo git clone https://github.com/pierre9009/worker-startup.git /home/pierre/worker-startup
 
-if [ ! -f /home/pierre/slave-startup/.env ]; then
+if [ ! -f /home/pierre/worker-startup/.env ]; then
     echo "The .env file doesn't exist. Please paste the entire .env content (press Ctrl+D when finished):"
-    cat > /home/pierre/slave-startup/.env
+    cat > /home/pierre/worker-startup/.env
 fi
 
 # Créer le fichier de service systemd pour Docker Compose
@@ -38,7 +38,7 @@ Requires=docker.service
 
 [Service]
 Type=oneshot
-ExecStart=/home/pierre/slave-startup/start_docker_compose.sh
+ExecStart=/home/pierre/worker-startup/start_docker_compose.sh
 RemainAfterExit=yes
 
 [Install]
